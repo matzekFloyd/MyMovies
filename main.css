@@ -1,0 +1,175 @@
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  color: white;
+  width: 200px;
+  height: 70px;
+  padding: 2px;
+  font: 15px sans-serif;
+  background: black;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+  }
+
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+.Aligner-item {
+  max-width: 50%;
+  }
+
+.Aligner-item--top {
+  align-self: flex-start;
+  }
+
+.Aligner-item--bottom {
+  align-self: flex-end;
+  }
+
+.wrapper {
+  text-align: center;
+  }
+
+  h1{
+    text-align: center;
+  }
+
+  #documentation{
+    display: flex; /* equal height of the children */
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    font-size: 150%;
+  }
+
+  #zurVisualisierung{
+text-align: center;
+  }
+
+  p{
+    padding: 20px;
+  }
+
+#buttonArea{
+  display: flex;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+#splitR {
+flex: 1; /* additionally, equal width */
+padding: 1em;
+background-color: black;
+border: none;
+color: white;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+
+}
+
+#splitD {
+  flex: 1; /* additionally, equal width */
+  padding: 1em;
+  background-color: black;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#combine{
+  flex: 1; /* additionally, equal width */
+  padding: 1em;
+  background-color: dimgrey;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.row {
+  display: flex; /* equal height of the children */
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.years {
+  flex: 1; /* additionally, equal width */
+  padding: 1em;
+}
+
+#year1900{
+  flex: 1; /* additionally, equal width */
+  padding: 1em;
+  background-color: #910080;
+  color: white;
+  text-align: center;
+}
+
+#year1950{
+  flex: 1; /* additionally, equal width */
+  padding: 1em;
+  background-color: #FF0002;
+  color: white;
+  text-align: center;
+}
+
+#year1960{
+  flex: 1; /* additionally, equal width */
+  padding: 1em;
+  background-color: #FF7C00;
+  color: black;
+  text-align: center;
+}
+
+#year1970{
+flex: 1; /* additionally, equal width */
+padding: 1em;
+background-color: #FFF600;
+color: black;
+text-align: center;
+}
+
+#year1980{
+flex: 1; /* additionally, equal width */
+padding: 1em;
+background-color: #C5E000;
+color: black;
+text-align: center;
+}
+
+#year1990{
+flex: 1; /* additionally, equal width */
+padding: 1em;
+background-color: #5EC418;
+color: black;
+text-align: center;
+}
+
+#year2000{
+flex: 1; /* additionally, equal width */
+padding: 1em;
+background-color: #00A0F3;
+color: white;
+text-align: center;
+}
+
+#year2010{
+flex: 1; /* additionally, equal width */
+padding: 1em;
+background-color: #222183;
+color: white;
+text-align: center;
+}

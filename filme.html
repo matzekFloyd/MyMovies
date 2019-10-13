@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <title>Filme</title>
+    </head>
+    <body>
+          <div class="row">
+            <button id="splitD"> Group by Decade</button>
+            <button id="combine"> Group at Center </button>
+            <button id="splitR"> Group by Rating</button>
+          </div>
+
+          <div class="Aligner">
+            <div class="Aligner-item Aligner-item--top"></div>
+            <div class="Aligner-item"></div>
+            <div class="Aligner-item Aligner-item--bottom"></div>
+          </div>
+
+          <div class="row">
+              <div id="year1900">1900 - 1950</div>
+              <div id="year1950">1950 - 1959</div>
+              <div id="year1960">1960 - 1969</div>
+              <div id="year1970">1970 - 1979</div>
+              <div id="year1980">1980 - 1989</div>
+              <div id="year1990">1990 - 1999</div>
+              <div id="year2000">2000 - 2010</div>
+              <div id="year2010">2010 - 2017</div>
+          </div>
+
+          <div id="documentation">
+            <h1>Description</h1>
+
+          <ul>
+            Jede Bubble entspricht einem Film. Die Größe der Bubbles variiert anhand ihrer Bewertung. Die Farben der Bubbles sind dem jeweiligen Jahrzehnt in dem sie erschienen sind zugeordnet.
+
+            <h3>Interaktionsmöglichkeiten</h3>
+          <li>Button „Group by Decade“: Sortiert die Bubbles anhand ihres Erscheinungsjahres. Es wird nach dem Jahrzehnt gruppiert.</li>
+          <li>Button „Group by Rating“: Sortiert die Bubbles anhand ihrer Bewertung. Es wird nach der Bewertung gruppiert. 0 - 0.5 = eine Gruppe</li>
+          <li>Button „Combine“: Fügt alle Bubbles in der Mitte des Bildschirmes zu einem Cluster zusammen.</li>
+          <li>Mouse hover: Wenn sich die Maus über einer Bubble befindet, erscheint daneben ein Tooltip mit Detailinfos (Titel, Bewertung, Erscheinungsjahr)</li>
+          </ul>
+        </div>
+
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="d3Script.js"></script>
+
+    </body>
+</html>
