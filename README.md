@@ -66,7 +66,7 @@ After importing, run `npm run dev` or `npm run build` as usual.
 
 ## Project layout
 
-- **`site/`** — HTML, CSS, and `d3Script.js` (Vite root)
+- **`site/`** — HTML, CSS, `film-bubble-chart.js`, and `era.js` (Vite root)
 - **`site/public/`** — Static assets served as-is (including `filme.csv`)
 - **`dist/`** — Build output (gitignored)
 

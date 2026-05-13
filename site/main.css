@@ -1,15 +1,184 @@
+/* Bubble chart page: fill viewport, chart area flexes */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body.viz-page {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.viz-page .viz-toolbar {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.viz-page .viz-toolbar .toolbar-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  min-width: 0;
+  justify-content: center;
+}
+
+.viz-page .viz-toolbar .toolbar-cluster button {
+  cursor: pointer;
+}
+
+.chart-frame {
+  flex: 1 1 0;
+  min-height: 0;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+.chart-root {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.description-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.12);
+  cursor: default;
+}
+
+.info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 2px solid #333;
+  border-radius: 50%;
+  background: #fff;
+  color: #111;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.info-btn--floating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+}
+
+.info-btn:hover {
+  background: #f0f0f0;
+}
+
+.info-btn:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.info-btn__icon {
+  display: flex;
+  line-height: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.chart-root .chart-svg {
+  display: block;
+  max-width: 100%;
+}
+
+.viz-page .year-legend {
+  flex: 0 0 auto;
+}
+
+.viz-page .row {
+  width: min(1200px, 98vw);
+}
+
+.description-popover {
+  position: absolute;
+  top: calc(2.75rem + 18px);
+  right: 10px;
+  left: auto;
+  z-index: 4;
+  width: min(22rem, calc(100% - 20px));
+  max-height: min(70vh, 28rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0.65rem 1rem 0.85rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
+  font-size: clamp(13px, 1.9vw, 16px);
+}
+
+.description-popover .doc-content {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
+  padding: 0;
+}
+
+.description-popover .doc-content h1 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
+}
+
+.description-popover .doc-content ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
 div.tooltip {
   position: absolute;
   text-align: center;
   color: white;
-  width: 200px;
-  height: 70px;
-  padding: 2px;
-  font: 15px sans-serif;
+  width: max-content;
+  max-width: min(22rem, calc(100vw - 24px));
+  min-width: 4.5rem;
+  height: auto;
+  min-height: 0;
+  padding: 6px 10px;
+  font: 15px/1.35 sans-serif;
   background: black;
-  border: 0px;
+  border: 0;
   border-radius: 8px;
   pointer-events: none;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  transform-origin: center bottom;
 }
 
 .Aligner {
@@ -63,10 +232,6 @@ h1 {
 
 #openVisualization a:hover {
   background-color: #333;
-}
-
-p {
-  padding: 20px;
 }
 
 .back-link {
@@ -129,66 +294,27 @@ p {
   padding: 1em;
 }
 
-#year1900 {
-  flex: 1;
-  padding: 1em;
-  background-color: #910080;
-  color: white;
-  text-align: center;
+.year-legend {
+  flex-wrap: wrap;
 }
 
-#year1950 {
+.year-legend .year-swatch {
   flex: 1;
-  padding: 1em;
-  background-color: #ff0002;
-  color: white;
+  min-width: 0;
+  padding: 0.65em 0.35em;
+  font-size: clamp(10px, 1.1vw, 14px);
   text-align: center;
+  line-height: 1.2;
+  cursor: pointer;
+  user-select: none;
 }
 
-#year1960 {
-  flex: 1;
-  padding: 1em;
-  background-color: #ff7c00;
-  color: black;
-  text-align: center;
+.year-legend .year-swatch:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 2px;
+  z-index: 1;
 }
 
-#year1970 {
-  flex: 1;
-  padding: 1em;
-  background-color: #fff600;
-  color: black;
-  text-align: center;
-}
-
-#year1980 {
-  flex: 1;
-  padding: 1em;
-  background-color: #c5e000;
-  color: black;
-  text-align: center;
-}
-
-#year1990 {
-  flex: 1;
-  padding: 1em;
-  background-color: #5ec418;
-  color: black;
-  text-align: center;
-}
-
-#year2000 {
-  flex: 1;
-  padding: 1em;
-  background-color: #00a0f3;
-  color: white;
-  text-align: center;
-}
-
-#year2010 {
-  flex: 1;
-  padding: 1em;
-  background-color: #222183;
-  color: white;
-  text-align: center;
+.year-legend .year-swatch.year-swatch--focused {
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.92), 0 0 0 2px rgba(0, 0, 0, 0.35);
 }
