@@ -11,10 +11,7 @@ export default defineConfig({
     outDir: "../dist",
     emptyOutDir: true,
     rollupOptions: {
-      input: {
-        main: resolve(site, "index.html"),
-        filme: resolve(site, "filme.html"),
-      },
+      input: resolve(site, "index.html"),
     },
   },
 });

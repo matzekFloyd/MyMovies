@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Interactive **D3** bubble chart of personal movie ratings: each bubble is a film, sized by rating and colored by release era. Group films by decade, by rating, or combined in the center.
+Interactive **D3** bubble chart of personal movie ratings: each bubble is a film, sized by rating and colored by release era. Group films by decade, by rating, combined in the center, or isolate one era from the legend.
 
 ## Requirements
 
@@ -23,7 +23,7 @@ npm install
 | `npm run preview`            | Serve the production build locally               |
 | `npm run import:letterboxd`  | Build `filme.csv` from a Letterboxd export (see **Data**) |
 
-Open the URL Vite prints; start from **Documentation** (`index.html`) or go straight to **`filme.html`** for the chart.
+Open the URL Vite prints; the app is a single page at **`/`** (`index.html`).
 
 ## Data
 
