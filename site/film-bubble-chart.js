@@ -305,8 +305,15 @@ export class FilmBubbleChart {
   }
 
   updateRadiusScale() {
-    const maxR = Math.min(14, Math.max(4, Math.min(this.layoutWidth, this.layoutHeight) * 0.035));
-    this.radiusScale = d3.scaleSqrt().domain([0, 10]).range([1, maxR]);
+    const s = Math.min(this.layoutWidth, this.layoutHeight);
+    // Taper bubble size on small panels (phones): same sqrt scale, tighter range.
+    const t = Math.min(1, Math.max(0, (s - 280) / 420));
+    const mult = 0.012 + t * (0.035 - 0.012);
+    const maxCap = 5 + t * (14 - 5);
+    const minR = 0.55 + t * (1 - 0.55);
+    const rawMax = s * mult;
+    const maxR = Math.min(maxCap, Math.max(minR * 2.5, rawMax));
+    this.radiusScale = d3.scaleSqrt().domain([0, 10]).range([minR, maxR]);
   }
 
   rebuildForces() {
